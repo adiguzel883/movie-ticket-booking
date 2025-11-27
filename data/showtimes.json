@@ -1,0 +1,84 @@
+[
+  {
+    "id": "s1",
+    "movie_id": "m1",
+    "start_time": "2024-12-31T20:00:00",
+    "screen": "Salon 1",
+    "pricing": {
+      "standard": 12.0,
+      "vip": 18.0
+    },
+    "screen_config": {
+      "rows": 5,
+      "cols": 6
+    },
+    "seat_map": {
+      "A1": "available",
+      "A2": "available",
+      "A3": "available",
+      "A4": "available",
+      "A5": "available",
+      "A6": "available",
+      "B1": "available",
+      "B2": "available",
+      "B3": "available",
+      "B4": "available",
+      "B5": "available",
+      "B6": "available",
+      "C1": "available",
+      "C2": "available",
+      "C3": "available",
+      "C4": "available",
+      "C5": "available",
+      "C6": "available",
+      "D1": "available",
+      "D2": "available",
+      "D3": "available",
+      "D4": "available",
+      "D5": "available",
+      "D6": "available",
+      "E1": "available",
+      "E2": "available",
+      "E3": "available",
+      "E4": "available",
+      "E5": "available",
+      "E6": "available"
+    }
+  },
+  {
+    "id": "s2",
+    "movie_id": "m2",
+    "start_time": "2024-12-31T20:00:00",
+    "screen": "Salon 2",
+    "pricing": {
+      "standard": 12.0,
+      "vip": 18.0
+    },
+    "screen_config": {
+      "rows": 4,
+      "cols": 5
+    },
+    "seat_map": {
+      "A1": "available",
+      "A2": "available",
+      "A3": "available",
+      "A4": "available",
+      "A5": "available",
+      "B1": "available",
+      "B2": "available",
+      "B3": "available",
+      "B4": "available",
+      "B5": "available",
+      "C1": "available",
+      "C2": "available",
+      "C3": "available",
+      "C4": "available",
+      "C5": "available",
+      "D1": "available",
+      "D2": "available",
+      "D3": "available",
+      "D4": "available",
+      "D5": "available"
+    }
+  }
+]
