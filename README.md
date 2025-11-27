@@ -1,26 +1,26 @@
 # Movie Ticket Booking System
 
-Terminal tabanlı bir sinema biletleme sistemi. Müşteri ve admin menüleri içerir; koltuk haritaları, rezervasyon, iptal, yedekleme ve raporlama akışlarını destekler.
+A terminal-based cinema ticketing system with customer and admin menus. It supports seat maps, reservations, cancellations, backups, and reporting.
 
-## Proje Yapısı
-- `main.py`: Uygulama girişi ve menü akışları
-- `movies.py`: Film ve seans yönetimi yardımcıları
-- `seating.py`: Koltuk haritası oluşturma/görüntüleme ve rezervasyon kontrolleri
-- `bookings.py`: Rezervasyon oluşturma, iptal, toplam hesaplama ve bilet üretimi
-- `storage.py`: JSON tabanlı kalıcılık, yükleme/kaydetme ve yedekleme
-- `reports.py`: Doluluk, gelir ve popüler film raporları, dışa aktarma
-- `data/`: Örnek `movies.json`, `showtimes.json`, `bookings.json`
-- `tests/`: Pytest senaryoları (koltuk uygunluğu, çift rezervasyon engelleme, iptal ve fiyat hesaplama)
+## Project Structure
+- `main.py`: Application entry point and menu flows
+- `movies.py`: Helpers for movie and showtime management
+- `seating.py`: Seat map creation, rendering, and availability checks
+- `bookings.py`: Booking creation, cancellation, total calculation, and ticket generation
+- `storage.py`: JSON-based persistence, loading/saving state, and backups
+- `reports.py`: Occupancy, revenue, and top-movie reports, including export
+- `data/`: Sample `movies.json`, `showtimes.json`, `bookings.json`
+- `tests/`: Pytest scenarios (seat availability, double-booking prevention, cancellation, price calculation)
 
-## Çalıştırma
+## Running
 ```bash
 python main.py
 ```
 
-## Testler
+## Testing
 ```bash
 pytest
 ```
 
-## JSON Örnekleri
-`data/` dizinindeki dosyalar başlangıç verisini içerir; uygulama çalışırken değişiklikler otomatik kaydedilir.
+## JSON Samples
+The `data/` directory contains initial JSON data for movies, showtimes, bookings, and seat maps. The system automatically persists updates to these files during runtime.
