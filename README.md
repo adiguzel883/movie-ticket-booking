@@ -1,7 +1,5 @@
 # Python Term Project – Movie Ticket Booking System
 
-Terminal tabanlı bir sinema biletleme prototipi. Gösterim planlama, koltuk yönetimi, rezervasyon, iptal, veri kalıcılığı ve raporlama özelliklerini içerir.
-
 ## Kurulum
 1. Python 3.10+ kurulu olmalı.
 2. Depo kökünde aşağıdaki komutla sanal ortam (isteğe bağlı) kurun:
