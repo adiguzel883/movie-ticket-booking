@@ -1,5 +1,18 @@
 # Python Term Project – Movie Ticket Booking System
 
+## Amaç ve Özet
+- Amaç: Terminal tabanlı sinema biletleme prototipi; gösterim planlama, koltuk yönetimi, rezervasyon/iptal, bilet üretimi, veri kalıcılığı ve raporlamayı kapsar.
+- Çalışma: Admin filmi ve gösterimi ekler → sistem koltuk haritasını üretir → müşteri gösterim ve koltuk seçer, rezervasyon yapılır, bilet metin dosyası olarak `tickets/` içine yazılır → iptal edilirse koltuk serbest kalır.
+- Veri: JSON tabanlı kalıcılık (`data/`), otomatik yedekler `backups/`.
+
+## Modüller (kısa)
+- `movies.py`: Film kataloğu ve gösterim ekleme/güncelleme.
+- `seating.py`: Koltuk haritası üretimi, koltuk uygunluk ve işaretleme.
+- `bookings.py`: Rezervasyon/iptal, fiyat/indirim/vergi hesabı, bilet çıktısı.
+- `storage.py`: JSON yükleme/kaydetme, yedek oluşturma, doğrulama.
+- `reports.py`: Doluluk ve gelir özetleri, rapor dışa aktarma.
+- `main.py`: CLI menüleri (müşteri/admin), akış kontrolü.
+
 ## Kurulum
 1. Python 3.10+ kurulu olmalı.
 2. Depo kökünde aşağıdaki komutla sanal ortam (isteğe bağlı) kurun:
