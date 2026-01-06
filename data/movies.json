@@ -1,0 +1,12 @@
+[
+  {
+    "id": "MV001",
+    "title": "The Sample Premiere",
+    "genre": "Drama",
+    "duration_min": 110,
+    "rating": "PG-13",
+    "description": "Sample movie for demo flows.",
+    "created_at": "2026-01-06T00:00:00"
+  }
+]
+

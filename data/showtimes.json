@@ -1,0 +1,22 @@
+{
+  "showtimes": [
+    {
+      "id": "ST001",
+      "movie_id": "MV001",
+      "screen": "Screen 1",
+      "datetime": "2026-01-07 19:30",
+      "language": "OV",
+      "pricing": {
+        "standard": 10.0,
+        "premium": 14.0
+      },
+      "screen_config": {
+        "rows": ["A", "B", "C", "D", "E", "F"],
+        "seats_per_row": 8,
+        "premium_rows": ["A", "B"]
+      }
+    }
+  ],
+  "seat_maps": {}
+}
+
