@@ -1,2 +1,80 @@
-[]
-
+[
+  {
+    "id": "45581c7e-6",
+    "showtime_id": "ST001",
+    "seats": [
+      "A1"
+    ],
+    "customer": {
+      "name": "ARDA",
+      "email": "GAGAGAGGAGA@GMAİL.COM",
+      "phone": ""
+    },
+    "pricing": {
+      "subtotal": 14.0,
+      "discount": 0.0,
+      "tax": 1.12,
+      "total": 15.12
+    },
+    "status": "active",
+    "created_at": "2026-01-07T11:24:54+00:00",
+    "showtime_snapshot": {
+      "movie_id": "MV001",
+      "screen": "Screen 1",
+      "datetime": "2026-01-07 19:30",
+      "language": "OV"
+    }
+  },
+  {
+    "id": "794be843-d",
+    "showtime_id": "ST001",
+    "seats": [
+      "A2"
+    ],
+    "customer": {
+      "name": "arda",
+      "email": "ardaadiguzel@gmail.com",
+      "phone": ""
+    },
+    "pricing": {
+      "subtotal": 14.0,
+      "discount": 0.0,
+      "tax": 1.12,
+      "total": 15.12
+    },
+    "status": "active",
+    "created_at": "2026-01-07T11:26:46+00:00",
+    "showtime_snapshot": {
+      "movie_id": "MV001",
+      "screen": "Screen 1",
+      "datetime": "2026-01-07 19:30",
+      "language": "OV"
+    }
+  },
+  {
+    "id": "8ac2cbfa-1",
+    "showtime_id": "ST001",
+    "seats": [
+      "A3"
+    ],
+    "customer": {
+      "name": "ADA",
+      "email": "DADADA",
+      "phone": ""
+    },
+    "pricing": {
+      "subtotal": 14.0,
+      "discount": 0.0,
+      "tax": 1.12,
+      "total": 15.12
+    },
+    "status": "active",
+    "created_at": "2026-01-07T11:44:25+00:00",
+    "showtime_snapshot": {
+      "movie_id": "MV001",
+      "screen": "Screen 1",
+      "datetime": "2026-01-07 19:30",
+      "language": "OV"
+    }
+  }
+]

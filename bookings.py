@@ -1,15 +1,30 @@
 import os
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from typing import List, Dict, Optional
 
 import seating
 
 
+def _parse_showtime_dt(value: str) -> Optional[datetime]:
+    """Best-effort parse of showtime datetime; returns None on failure."""
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(value)
+    except Exception:
+        try:
+            return datetime.strptime(value, "%Y-%m-%d %H:%M")
+        except Exception:
+            return None
+
+
 def create_booking(showtimes: List[Dict], seat_maps: Dict, booking_data: Dict) -> Dict:
     """Create a booking, reserve seats, and return the booking record."""
     showtime_id = booking_data["showtime_id"]
-    seats = booking_data.get("seats") or []
+    seats = [s for s in (booking_data.get("seats") or []) if s]
+    if not seats:
+        raise ValueError("No seats selected.")
     customer = booking_data.get("customer") or {}
     bookings_list: Optional[List[Dict]] = booking_data.get("bookings")
 
@@ -20,6 +35,13 @@ def create_booking(showtimes: List[Dict], seat_maps: Dict, booking_data: Dict) -
         raise ValueError("Seat map missing for showtime")
 
     seat_map = seat_maps[showtime_id]
+    if all(seat.get("status") != "available" for seat in seat_map.values()):
+        raise ValueError("Showtime is sold out.")
+
+    invalid = [code for code in seats if code not in seat_map]
+    if invalid:
+        raise ValueError(f"Invalid seat codes: {', '.join(invalid)}")
+
     unavailable = [code for code in seats if not seating.is_seat_available(seat_map, code)]
     if unavailable:
         raise ValueError(f"Seats not available: {', '.join(unavailable)}")
@@ -53,11 +75,24 @@ def create_booking(showtimes: List[Dict], seat_maps: Dict, booking_data: Dict) -
     return booking
 
 
-def cancel_booking(bookings: List[Dict], booking_id: str, seat_maps: Dict) -> bool:
-    """Cancel booking and free seats. Returns True if cancelled."""
+def cancel_booking(
+    bookings: List[Dict],
+    booking_id: str,
+    seat_maps: Dict,
+    now: Optional[datetime] = None,
+    cancellation_window_min: int = 30,
+) -> (bool, str):
+    """Cancel booking with cutoff; frees seats. Returns (success, message)."""
+    now = now or datetime.now()
     booking = next((b for b in bookings if b.get("id") == booking_id), None)
     if not booking or booking.get("status") == "cancelled":
-        return False
+        return False, "Booking not found or already cancelled."
+
+    showtime_str = booking.get("showtime_snapshot", {}).get("datetime")
+    show_dt = _parse_showtime_dt(showtime_str)
+    if show_dt:
+        if show_dt - now < timedelta(minutes=cancellation_window_min):
+            return False, "Cannot cancel within 30 minutes of showtime."
 
     showtime_id = booking.get("showtime_id")
     seat_map = seat_maps.get(showtime_id)
@@ -67,7 +102,7 @@ def cancel_booking(bookings: List[Dict], booking_id: str, seat_maps: Dict) -> bo
 
     booking["status"] = "cancelled"
     booking["cancelled_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
-    return True
+    return True, "Booking cancelled."
 
 
 def calculate_booking_total(
